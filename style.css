@@ -17,21 +17,23 @@ body{
  width: 50%;
  height: 50px;
  position: relative;
+ overflow: hidden;
 }
 
 .form input{
     width: 100%;
     height: 100%;
     color: gray;   
-    /* font-size: 20px; */
+    font-size: 20px;
     padding-top: 20px;
     border: none;
+    outline: none;     
 }
 
 .form label{
     position: absolute;
     bottom: 0;
-    top: 5px; 
+    top: 4px; 
     /* top을 넣는게 인간적으로 좀 낫다  */
     left: 0;
     width: 100%;
@@ -44,11 +46,32 @@ body{
     content: "";
     position: absolute;
     bottom: 0;
-    top: 0px; 
+    top: -1px; 
     /* top을 넣는게 인간적으로 좀 낫다  */
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
     border-bottom: 3px solid rgb(62, 218, 232);
+    transform: translateX(-100%);
+    transition: all 300ms ease;
+    /* z-index: 2; */
+}
+.content_name{
+    position: absolute;
+    bottom: 2px;
+    left:0;
+    transition: all 300ms ease;
+}
+
+.form input:focus + .label_name .content_name,
+ .form input:valid + .label_name .content_name{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color:rgb(62, 218, 232);
+}
+
+.form input:focus + .label_name::after,
+.form input:valid + .label_name::after{
+    transform: translateX(0%);
 }
