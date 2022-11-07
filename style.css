@@ -11,6 +11,7 @@ body{
     flex-direction: column;
     align-items: center;
     font-family: sans-serif;
+    /* background-color: red; */
 }
 
 .form{
@@ -33,7 +34,7 @@ body{
 .form label{
     position: absolute;
     bottom: 0;
-    top: 4px; 
+    top: -1px; 
     /* top을 넣는게 인간적으로 좀 낫다  */
     left: 0;
     width: 100%;
